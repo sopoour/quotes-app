@@ -36,7 +36,7 @@ function App() {
           <Redirect to="/quotes" />
         </Route>
         <Route path="/quotes" exact>
-          <AllQuotes quotes={quotes} />
+          <AllQuotes />
         </Route>
         <Route path="/quotes/:quoteId">
           <QuoteDetail quotes={quotes} />
