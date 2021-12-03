@@ -28,7 +28,7 @@ const AddQuote = (props) => {
       //replace method: it's a redirect and history is removed
       /* v5: history.push("/quotes"); */
       //now in v6:
-      navigate("/quotes", {replace: false})
+      navigate("/quotes-app", {replace: false})
     }
   }, [status, navigate]);
 

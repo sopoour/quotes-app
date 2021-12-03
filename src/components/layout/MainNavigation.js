@@ -12,7 +12,7 @@ const MainNavigation = () => {
             but instead we can find out whether the Link is active through 
             the data that is passed on from react-router-dom to className */}
             <NavLink
-              to="/quotes"
+              to="quotes-app/quotes"
               className={(navData) => (navData.isActive ? styles.active : "")}
               /* activeClassName={styles.active} */
             >
@@ -21,7 +21,7 @@ const MainNavigation = () => {
           </li>
           <li>
             <NavLink
-              to="/new-quote"
+              to="quotes-app/new-quote"
               className={(navData) => (navData.isActive ? styles.active : "")}
              /*  activeClassName={styles.active} */
             >
