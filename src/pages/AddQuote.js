@@ -5,7 +5,7 @@ import useHttp from "../hooks/use-http";
 import { addQuote } from "../lib/api";
 import { useEffect } from "react";
 
-const AddQuote = (props) => {
+const AddQuote = () => {
   //the addQuote function is used as request function (sendRequest) within useHttp
   //that takes the data passed on here (in our case the new quote)
   //we will get back also a state aka status that contains the status, data and eror value
