@@ -7,27 +7,7 @@ import Layout from "./components/layout/Layout";
 import NotFound from "./pages/NotFound";
 
 function App() {
-  const [quotes, setQuotes] = useState([
-    {
-      id: "q1",
-      author: "Sophia",
-      text: "this is a quote by sophia",
-    },
-    {
-      id: "q2",
-      author: "Anna",
-      text: "this is a quote by Anna",
-    },
-  ]);
 
-  const handleAddQuote = (newQuote) => {
-    console.log("In app:" + newQuote);
-    setQuotes((prevQuotes) => {
-      return [newQuote, ...prevQuotes];
-    });
-  };
-
-  console.log(quotes);
 
   return (
     <Layout>
@@ -44,11 +24,11 @@ function App() {
         <Route
         /* To allow nested routes within this route use "*" */
           path="/quotes-app/quotes/:quoteId/*"
-          element={<QuoteDetail quotes={quotes} />}
+          element={<QuoteDetail />}
         />
         <Route
           path="/quotes-app/new-quote"
-          element={<AddQuote onAddQuote={handleAddQuote} />}
+          element={<AddQuote />}
         />
         {/* To add a catch-all/404/not found page just put the path to the star and at the total end of the Switch */}
         <Route path="*" element={<NotFound />} />
