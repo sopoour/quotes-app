@@ -1,6 +1,6 @@
 # quotes-app
 
-Demo:
+Demo: <br>
 this is based on `react-router-v6-update` branch with v6 of react-router-dom: https://sophiaauer.me/quotes-app/
 
 Features:
