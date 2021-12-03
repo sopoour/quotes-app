@@ -1,5 +1,8 @@
 # quotes-app
 
+Demo:
+this is based on `react-router-v6-update` branch with v6 of react-router-dom: https://sophiaauer.me/quotes-app/
+
 Features:
 * Multi-Page SPA (single-page-application) using React Router
 * Pages: all quotes, add a new quote, detail page for each quote
@@ -14,7 +17,7 @@ Using all different components and methods provided by `react-router-dom` in v5:
 * 404 page routing
 * useHistory, useLocation, useParams & useRouteMatch to change and access URL's information
 
-The branch `reaact-router-v6-update` shows the project in v6 with following changes:
+The branch `react-router-v6-update` shows the project in v6 with following changes:
 * Different use of Route & using Navigate instead of Redirect component
 * Replacing Switch with Routes
 * Making necessary changes to nested Route (wrapping it in Route and using the `/*` annotation)
