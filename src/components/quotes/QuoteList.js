@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import QuoteItem from "./QuoteItem";
 import classes from "./QuoteList.module.css";
@@ -15,7 +15,9 @@ const sortQuotes = (quotes, ascending) => {
 };
 
 const QuoteList = (props) => {
-  const history = useHistory();
+  /* v5: const history = useHistory(); */
+  // in v6:
+  const navigate = useNavigate();
   //get access to a location object that has information about the currently loaded URL/page
   const location = useLocation();
 
@@ -32,16 +34,22 @@ const QuoteList = (props) => {
   const handleChangeSorting = () => {
     //update the query parameter in the URL depending on how the button is clicked and hence the current query is
     //use the current pathname instead of hard coding "quotes" in order to keep it dynamic
-   /*  history.push(
+   /* v5:  history.push(
       `${location.pathname}?sort=${isSortingAscending ? "desc" : "asc"}`
     ); */
 
     //instead of having an awfully long string name as path name within push, we can also push an object
     //that is split up into pathname and search:
-    history.push({
+    /* v5: history.push({
       pathname: location.pathname,
       search: `?sort=${isSortingAscending ? "desc" : "asc"}`,
-    });
+    }); */
+    //in v6:
+    navigate({
+      pathname: location.pathname,
+      search: `?sort=${isSortingAscending ? "desc" : "asc"}`,
+    })
+
   };
 
   return (

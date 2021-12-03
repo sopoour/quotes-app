@@ -1,5 +1,4 @@
 import { useRef, useState } from "react";
-import { Prompt } from "react-router-dom";
 import { Fragment } from "react/cjs/react.production.min";
 
 import Card from "../UI/Card";
@@ -23,7 +22,7 @@ const QuoteForm = (props) => {
   }
 
   const handleFormFocus = () => {
-    //when the user clicked into any form field, we set it true 
+    //when the user clicked into any form field, we set it true
     //this is then used to show the Prompt when leaving the page
     setIsEntering(true);
   };
@@ -32,13 +31,15 @@ const QuoteForm = (props) => {
     <Fragment>
       {/* to show a prompt warning if a user typed in something into the form and clicks on the back button/leaves the page
       we can use the Prompt component from react-router-dom */}
+      {/*  in v6 the Prompt component is no longer supported
       <Prompt
         when={isEntering}
-        /* with location we could also show the path */
+        /* with location we could also show the path 
         message={(location) =>
           "Are you sure you want to leave? All your entered data will be lost."
         }
-      />
+      /> */}
+
       <Card>
         <form
           onFocus={handleFormFocus}
@@ -61,7 +62,9 @@ const QuoteForm = (props) => {
           </div>
           <div className={classes.actions}>
             {/* to not get the prompt when we actually wanna submit the quote we set it to false */}
-            <button onClick={() => setIsEntering(false)} className="btn">Add Quote</button>
+            <button onClick={() => setIsEntering(false)} className="btn">
+              Add Quote
+            </button>
           </div>
         </form>
       </Card>
