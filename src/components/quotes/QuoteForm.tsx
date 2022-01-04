@@ -1,20 +1,25 @@
-import { useRef, useState } from "react";
-import { Fragment } from "react/cjs/react.production.min";
+import React, { useRef, useState } from "react";
 
 import Card from "../UI/Card";
+import Quote from "../../models/quote";
 import LoadingSpinner from "../UI/LoadingSpinner";
 import classes from "./QuoteForm.module.css";
 
-const QuoteForm = (props) => {
-  const authorInputRef = useRef();
-  const textInputRef = useRef();
+type Props = {
+  onAddQuote: (quote: Quote) => void;
+  isLoading: boolean;
+};
+
+const QuoteForm: React.FC <Props> = (props) => {
+  const authorInputRef = useRef<HTMLTextAreaElement & HTMLInputElement>(null);
+  const textInputRef = useRef<HTMLTextAreaElement & HTMLInputElement>(null);
   const [isEntering, setIsEntering] = useState(false);
 
-  function submitFormHandler(event) {
+  function submitFormHandler(event: React.FormEvent) {
     event.preventDefault();
 
-    const enteredAuthor = authorInputRef.current.value;
-    const enteredText = textInputRef.current.value;
+    const enteredAuthor = authorInputRef.current!.value;
+    const enteredText = textInputRef.current!.value;
 
     // optional: Could validate here
 
@@ -28,7 +33,7 @@ const QuoteForm = (props) => {
   };
 
   return (
-    <Fragment>
+    <React.Fragment>
       {/* to show a prompt warning if a user typed in something into the form and clicks on the back button/leaves the page
       we can use the Prompt component from react-router-dom */}
       {/*  in v6 the Prompt component is no longer supported
@@ -58,7 +63,7 @@ const QuoteForm = (props) => {
           </div>
           <div className={classes.control}>
             <label htmlFor="text">Text</label>
-            <textarea id="text" rows="5" ref={textInputRef}></textarea>
+            <textarea id="text" rows= {5} ref={textInputRef}></textarea>
           </div>
           <div className={classes.actions}>
             {/* to not get the prompt when we actually wanna submit the quote we set it to false */}
@@ -68,7 +73,7 @@ const QuoteForm = (props) => {
           </div>
         </form>
       </Card>
-    </Fragment>
+    </React.Fragment>
   );
 };
 

@@ -1,11 +1,12 @@
 import React /* , {useState} */ from "react";
 import { useNavigate } from "react-router-dom";
 import QuoteForm from "../components/quotes/QuoteForm";
+import Quote from "../models/quote";
 import useHttp from "../hooks/use-http";
 import { addQuote } from "../lib/api";
 import { useEffect } from "react";
 
-const AddQuote = () => {
+const AddQuote: React.FC = () => {
   //the addQuote function is used as request function (sendRequest) within useHttp
   //that takes the data passed on here (in our case the new quote)
   //we will get back also a state aka status that contains the status, data and eror value
@@ -17,7 +18,7 @@ const AddQuote = () => {
   // in v6 we use instead useNavigate() hook
   const navigate = useNavigate();
 
-  const handleEnterQuote = (quote) => {
+  const handleEnterQuote = (quote: Quote) => {
     sendRequest(quote);
   };
 
@@ -28,7 +29,7 @@ const AddQuote = () => {
       //replace method: it's a redirect and history is removed
       /* v5: history.push("/quotes"); */
       //now in v6:
-      navigate("/quotes-app", {replace: false})
+      navigate("/", {replace: false})
     }
   }, [status, navigate]);
 
