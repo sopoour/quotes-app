@@ -18,7 +18,7 @@ const AddQuote: React.FC = () => {
   // in v6 we use instead useNavigate() hook
   const navigate = useNavigate();
 
-  const handleEnterQuote = (quote: Quote) => {
+  const handleEnterQuote = (quote: {author: Quote["author"], text: Quote["text"]}) => {
     sendRequest(quote);
   };
 

@@ -1,5 +1,6 @@
 type Quote = {
-  id?: string;
+  //make comments optional with ? since not every quote has to have comments
+  id: string;
   author: string;
   text: string;
   comments?: {

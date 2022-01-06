@@ -6,7 +6,7 @@ import LoadingSpinner from "../UI/LoadingSpinner";
 import classes from "./QuoteForm.module.css";
 
 type Props = {
-  onAddQuote: (quote: Quote) => void;
+  onAddQuote: (quote: {author: Quote["author"], text: Quote["text"]}) => void;
   isLoading: boolean;
 };
 
