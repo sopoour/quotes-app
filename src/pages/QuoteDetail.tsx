@@ -12,7 +12,7 @@ import useHttp from "../hooks/use-http";
 import { getSingleQuote } from "../lib/api";
 import LoadingSpinner from "../components/UI/LoadingSpinner";
 
-const QuoteDetail = (props) => {
+const QuoteDetail = () => {
   //in v6 this is not needed anymore since we using relative paths within nested route
   /* const match = useRouteMatch(); */
   const params = useParams();
